@@ -72,4 +72,4 @@ def spust_agenta(vstup_uzivatele):
         print(f"Agent (Přímá odpověď): {odpoved_llm}")
 
 # Spuštění testu
-spust_agenta("Kolik je 2548 + 7452?")
+spust_agenta("Tak schvalne. Kolik je 2548 + 7452?")
