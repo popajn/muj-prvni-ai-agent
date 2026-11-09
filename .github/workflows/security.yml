@@ -1,0 +1,21 @@
+name: Snyk Security Scan
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master  # Upravte podle technologie (např. /maven, /golang, atd.)
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}  # Token musíte mít uložený v GitHub Secrets
+        with:
+          args: --severity-threshold=high
